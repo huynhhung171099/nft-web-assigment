@@ -3,6 +3,8 @@
 import { getContract } from "@/lib/web3/contract";
 import { useState } from "react";
 import CheckedAlert from "../utils/CheckedAlertSection";
+import Spacing from "../utils/Spacing";
+import { NFT_CONTRACT_ADDRESS } from "@/consts/contract";
 
 export default function MintForm() {
   const [uri, setUri] = useState("");
@@ -22,7 +24,11 @@ export default function MintForm() {
   }
   return (
     <>
-      <CheckedAlert message="mint success you can get to home page to see after few seconds"></CheckedAlert>
+      {mintSuccess ? (
+        <CheckedAlert message="mint success you can get to home page to see after few seconds"></CheckedAlert>
+      ) : (
+        <></>
+      )}
       <div className="flex flex-col space-y-4">
         <div className="text-lg font-medium text-white">URL</div>
         <input
@@ -69,6 +75,23 @@ export default function MintForm() {
           className="bg-gradient-to-r from-green-300 via-emerald-500 to-green-600 font-bold py-2 px-4 rounded hover:bg-gradient-to-l hover:from-purple-400 hover:via-indigo-500 hover:to-purple-800 hover:shadow-md hover:shadow-slate-500"
         >
           {"Mint"}
+        </button>
+        <Spacing h="150px"></Spacing>
+        <a
+          className="text-white text-center"
+          href="https://goerli.etherscan.io/address/0x6e4684badf4017bc0da987cfe1f6d1f17c40974a"
+        >
+          Contract: {NFT_CONTRACT_ADDRESS}
+        </a>
+        <button
+          onClick={() => {
+            window.location.assign(
+              "https://goerli.etherscan.io/address/0x6e4684badf4017bc0da987cfe1f6d1f17c40974a"
+            );
+          }}
+          className="bg-gradient-to-r from-green-300 via-emerald-500 to-green-600 font-bold py-2 px-4 rounded hover:bg-gradient-to-l hover:from-purple-400 hover:via-indigo-500 hover:to-purple-800 hover:shadow-md hover:shadow-slate-500"
+        >
+          {"View Contract"}
         </button>
       </div>
     </>
