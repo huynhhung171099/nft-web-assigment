@@ -1,5 +1,5 @@
 {
-  "name": "problem2",
+  "name": "goerli-nft",
   "version": "0.1.0",
   "scripts": {
     "dev": "next dev",
@@ -12,8 +12,10 @@
     "@metamask/sdk-react-ui": "^0.12.1",
     "@tabler/icons-react": "^2.40.0",
     "ethers": "^6.8.1",
+    "graphql": "^16.8.1",
     "graphql-request": "^6.1.0",
     "next": "14.0.0",
+    "ra-data-graphql": "^4.14.3",
     "react": "^18",
     "react-dom": "^18"
   },
