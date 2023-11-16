@@ -1,0 +1,30 @@
+specVersion: 0.0.5
+description: Handle NFT on BSC
+schema:
+  file: schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: Nft
+    network: goerli
+    source:
+      address: "0x6e4684badf4017bc0da987cfe1f6d1f17c40974a"
+      abi: Nft
+      startBlock: 10005888
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      file: Nft\Nft.wasm
+      language: wasm/assemblyscript
+      entities:
+        - Nft
+        - MarketNft
+        - User
+        - Transfer
+      abis:
+        - name: Nft
+          file: Nft\abis\Nft.json
+      eventHandlers:
+        - event: RequestedNftItem(indexed uint256,string,string,indexed address)
+          handler: handleRequestedNftItem
+        - event: Transfer(indexed address,indexed address,indexed uint256)
+          handler: handleTransfer

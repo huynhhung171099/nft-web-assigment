@@ -1,0 +1,38 @@
+type MarketNft @entity {
+  id: ID!
+  tokenAddress: Bytes!
+  nfts: [Nft!]! @derivedFrom(field: "marketNft")
+  transferCount: BigInt!
+  nftCount: BigInt!
+  userCount: BigInt!
+  recentTransfer: Transfer!
+  recentNftIdCreated: Nft!
+}
+
+type Nft @entity {
+  id: ID!
+  clearId: BigInt! 
+  marketNft: MarketNft!
+  uri: String!
+  description: String!
+  owner: User!
+  dateCreated: BigInt!
+  recentTransfer: Transfer!
+}
+
+type User @entity {
+  id: ID!
+  numberOfNfts: BigInt!
+  nfts: [Nft!]! @derivedFrom(field: "owner")
+}
+
+type Transfer @entity {
+  id: ID!
+  txHash: Bytes!
+  clearId: BigInt!
+  blockNumber: BigInt!
+  timestamp: BigInt!
+  from: Bytes!
+  to: Bytes!
+  nft: Nft!
+}
