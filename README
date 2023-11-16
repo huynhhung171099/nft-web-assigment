@@ -1,0 +1,19 @@
+Link demo: https://nft-goerli-view.netlify.app/
+Contract address: https://goerli.etherscan.io/address/0x6e4684badf4017bc0da987cfe1f6d1f17c40974a
+Network testnet: Goerli || chainID = 5
+
+Blockchain:
+  - solidity ^8.19
+  - hardhat
+  - typescript ^5
+  - thegraph.com 
+  - ERC721
+
+Front end:
+  - Nextjs 14
+  - nodejs ^18
+  - typescripts
+  - Reactjs
+  - graphql
+  - ethersjs
+  - SSR, SSG
